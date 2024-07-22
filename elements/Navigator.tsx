@@ -18,6 +18,7 @@ type navigatorButton = {
 };
 
 const Navigator = () => {
+  const playlists = dummyPlaylistArray as playlist[];
   const pathname = usePathname();
   const routes: navigatorButton[] = useMemo(() => {
     return [
@@ -72,7 +73,7 @@ const Navigator = () => {
       </section>
       <section>
         <ul>
-          {dummyPlaylistArray.map((pl) => {
+          {playlists.map((pl: playlist) => {
             return <PlayListNav key={`playlist-${pl}`} playlist={pl} />;
           })}
         </ul>
