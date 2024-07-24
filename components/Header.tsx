@@ -16,6 +16,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import Logo from "@/elements/Logo";
 import Navigator from "@/elements/Navigator";
 import { cn } from "@/lib/utils";
+import useUIState from "@/app/hooks/useUIState";
 
 const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,8 @@ const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
 const Header = ({ children }: { children: React.ReactNode }) => {
   const [isScrolled, setIsScrolled] = useState(true);
   const headRef: MutableRefObject<HTMLElement | null> = useRef(null);
+
+  const { headerImageSrc } = useUIState();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +74,10 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             alt="mediaItem"
             className="object-cover"
             fill
-            src="https://images.unsplash.com/photo-1707833558984-3293e794031c"
+            src={
+              headerImageSrc ||
+              "https://images.unsplash.com/photo-1707833558984-3293e794031c"
+            }
           />
         </div>
         <div className="absolute h-[400px] w-full top-0 bg-black opacity-40 "></div>
