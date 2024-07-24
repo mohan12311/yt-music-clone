@@ -13,8 +13,7 @@ interface HomeCategory {
 type HomeCategoryList = HomeCategory[];
 
 const Category = () => {
-  const { homeCategory, headerImageSrc, setHomeCategory, setHeaderImageSrc } =
-    useUIState();
+  const { homeCategory, setHomeCategory, setHeaderImageSrc } = useUIState();
 
   const homeCategories = homeCategoryList as HomeCategoryList;
 

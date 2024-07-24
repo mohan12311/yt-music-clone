@@ -9,6 +9,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import PlayListNav from "@/elements/PlaylistNav";
 import { dummyPlaylistArray } from "@/lib/dummyData";
+import { Playlist } from "@/type";
 
 type navigatorButton = {
   icon: React.ReactNode;
@@ -18,7 +19,7 @@ type navigatorButton = {
 };
 
 const Navigator = () => {
-  const playlists = dummyPlaylistArray as playlist[];
+  const playlists = dummyPlaylistArray as Playlist[];
   const pathname = usePathname();
   const routes: navigatorButton[] = useMemo(() => {
     return [
@@ -73,7 +74,7 @@ const Navigator = () => {
       </section>
       <section>
         <ul>
-          {playlists.map((pl: playlist) => {
+          {playlists.map((pl: Playlist) => {
             return <PlayListNav key={`playlist-${pl}`} playlist={pl} />;
           })}
         </ul>

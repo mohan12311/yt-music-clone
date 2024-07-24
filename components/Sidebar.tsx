@@ -7,7 +7,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
     <div className="flex flex-row h-full">
       <nav className="hidden lg:block w-60 border-r-[1px] border-neutral-600">
         <div className="p-[16px]">
-          <Logo />
+          <Logo onClickClose={() => {}} />
         </div>
         <div>
           <Navigator />
