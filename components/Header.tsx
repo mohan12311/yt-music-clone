@@ -51,13 +51,13 @@ const Header = ({ children }: { children: React.ReactNode }) => {
     };
 
     const currentRef = headRef.current;
-    if ("addEventListener" in currentRef) {
+    if (currentRef && "addEventListener" in currentRef) {
       currentRef.addEventListener("scroll", handleScroll);
     }
 
     return () => {
-      if ("removeEventListener" in currentRef) {
-        currentRef?.removeEventListener("scroll", handleScroll);
+      if (currentRef && "removeEventListener" in currentRef) {
+        currentRef.removeEventListener("scroll", handleScroll);
       }
     };
   });
